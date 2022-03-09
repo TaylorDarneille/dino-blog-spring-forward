@@ -28,12 +28,16 @@ class App extends Component {
   }
 
   handleTextChange = (e) => {
+    // make this funciton handle any input
+    const updatedInput = { [e.target.name]: e.target.value }
+    console.log(updatedInput)
+    this.setState({ updatedInput })
     // input change synthetic event
     //  dp npt need the prev value in a controlled form
     // triggers re-render on every key press
-    this.setState({
-      body: e.target.value
-    }, () => console.log(this.state))
+    // this.setState({
+    //   body: e.target.value
+    // })
   }
 
   render() {
@@ -53,6 +57,16 @@ class App extends Component {
         {postComponents}
 
         <form onSubmit={this.handleSubmit}>
+          <label htmlFor='title'>Post: Title</label>
+          <input 
+            type="text" 
+            id="title" 
+            placeholder='enter title'
+            name='title'
+            onChange={this.handleTextChange}
+            value={this.state.title}
+          />
+
           <label htmlFor='body'>Post:</label>
           <textarea
             id="body"
@@ -61,7 +75,7 @@ class App extends Component {
             onChange={this.handleTextChange}
             // 2. set the value of the input to be what is in state
             value={this.state.body}
-
+            name='body'
           >
           </textarea>
 
