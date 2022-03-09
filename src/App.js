@@ -57,6 +57,15 @@ class App extends Component {
         {postComponents}
 
         <form onSubmit={this.handleSubmit}>
+          <label htmlFor="author-name">Name:</label>
+          <input 
+            name='author'
+            onChange={this.handleTextChange}
+            value={this.state.author}
+            type="text"
+            id="author-name"
+          />                    
+
           <label htmlFor='title'>Post: Title</label>
           <input 
             type="text" 
