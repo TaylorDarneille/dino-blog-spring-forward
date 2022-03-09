@@ -30,8 +30,8 @@ class App extends Component {
   handleTextChange = (e) => {
     // make this funciton handle any input
     const updatedInput = { [e.target.name]: e.target.value }
-    console.log(updatedInput)
-    this.setState({ updatedInput })
+    // console.log(updatedInput)
+    this.setState({ ...updatedInput }, () => console.log(this.state))
     // input change synthetic event
     //  dp npt need the prev value in a controlled form
     // triggers re-render on every key press
